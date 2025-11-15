@@ -58,3 +58,18 @@ for c in classes:
 
 joblib.dump(gmms_sh, "/content/output/gmm_class_model_shuttle.joblib")
 print("Saved all GMMs.")
+
+#GMM PREDICT FUNCTION + EVALUATION
+def gmm_predict_from_dict(gmms_dict, X_scaled):
+    classes_list = sorted(gmms_dict.keys())
+    scores = np.vstack([gmms_dict[c].score_samples(X_scaled) for c in classes_list]).T
+    preds_idx = np.argmax(scores, axis=1)
+    return np.array([classes_list[i] for i in preds_idx]), scores
+
+y_pred_test, test_scores = gmm_predict_from_dict(gmms_sh, X_test_s)
+
+acc = accuracy_score(y_test, y_pred_test)
+print("\n")
+print("GMM Classification Accuracy:", acc)
+print("\nClassification report:\n", classification_report(y_test, y_pred_test))
+print("\nConfusion matrix:\n", confusion_matrix(y_test, y_pred_test))
