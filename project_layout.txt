@@ -1,0 +1,10 @@
+my-gmm-project/
+├─ requirements.txt
+├─ train_gmm.py          # script that trains GMMs and saves artifacts
+├─ predict_gmm.py        # script that loads artifacts and predicts on external CSV
+├─ run_all.sh            # convenience wrapper: train -> test -> predict example
+└─ output/               # saved models and outputs (created by script)
+   ├─ scaler_gmm_shuttle.joblib
+   ├─ gmm_class_model_shuttle.joblib
+   └─ training_columns_shuttle.joblib
+
