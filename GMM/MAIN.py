@@ -12,7 +12,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from ucimlrepo import fetch_ucirepo
 
-os.makedirs("/content/output", exist_ok=True)
+os.makedirs("output", exist_ok=True)
 print("Environment ready.")
 
 #LOAD STATLOG SHUTTLE DATASET
