@@ -33,8 +33,8 @@ scaler_sh = StandardScaler().fit(X_train)
 X_train_s = scaler_sh.transform(X_train)
 X_test_s  = scaler_sh.transform(X_test)
 
-joblib.dump(scaler_sh, "/content/output/scaler_gmm_shuttle.joblib")
-joblib.dump(list(X.columns), "/content/output/training_columns_shuttle.joblib")
+joblib.dump(scaler_sh, "output/scaler_gmm_shuttle.joblib")
+joblib.dump(list(X.columns), "output/training_columns_shuttle.joblib")
 
 print("Scaler + training column list saved.")
 
@@ -55,7 +55,7 @@ for c in classes:
     gmms_sh[c] = gmm
     print(f"Trained GMM for class {c}  (n_components={n_comp})")
 
-joblib.dump(gmms_sh, "/content/output/gmm_class_model_shuttle.joblib")
+joblib.dump(gmms_sh, "output/gmm_class_model_shuttle.joblib")
 print("Saved all GMMs.")
 
 #GMM PREDICT FUNCTION + EVALUATION
