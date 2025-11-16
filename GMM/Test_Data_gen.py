@@ -18,18 +18,18 @@ stds  = X.std().replace(0, 1.0)
 rows = [(means + np.random.randn(len(means)) * stds).values for _ in range(10)]
 example_df = pd.DataFrame(rows, columns=list(X.columns))
 
-EXAMPLE_CSV = "/content/external_data_example_matched.csv"
+EXAMPLE_CSV = "/external_data_example_matched.csv"
 example_df.to_csv(EXAMPLE_CSV, index=False)
 
 print("Created example:", EXAMPLE_CSV)
 print(example_df.head())
 
 #@title 🔵 BLOCK 7 — EXTERNAL PREDICTION WITH GMM
-EXAMPLE_CSV = "/content/external_data_example_matched.csv"
-OUT_PRED = "/content/output/external_gmm_predictions_matched.csv"
+EXAMPLE_CSV = "/external_data_example_matched.csv"
+OUT_PRED = "/output/external_gmm_predictions_matched.csv"
 
-scaler = joblib.load("/content/output/scaler_gmm_shuttle.joblib")
-gmms   = joblib.load("/content/output/gmm_class_model_shuttle.joblib")
+scaler = joblib.load("/output/scaler_gmm_shuttle.joblib")
+gmms   = joblib.load("/output/gmm_class_model_shuttle.joblib")
 
 df_ext = pd.read_csv(EXAMPLE_CSV)
 X_ext_s = scaler.transform(df_ext)
