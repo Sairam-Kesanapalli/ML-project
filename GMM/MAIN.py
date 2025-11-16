@@ -115,7 +115,7 @@ def predict_external(external_csv_path, out_path=None):
     df_ext = pd.read_csv(external_csv_path)
     # Ensure columns match training order
     df_ext = df_ext.loc[:, cols]
-    X_ext_s = scaler.transform(df_ext.values)
+    X_ext_s = scaler.transform(df_ext[cols])
 
     preds, scores = gmm_predict_from_dict(gmms, X_ext_s)
 
