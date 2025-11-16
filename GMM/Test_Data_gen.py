@@ -10,7 +10,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from ucimlrepo import fetch_ucirepo
 
-#@title 🔵 BLOCK 6 — CREATE MATCHED EXTERNAL EXAMPLE DATASET
+data = fetch_ucirepo(id=148)
+X = data.data.features.copy()
+y = data.data.targets.squeeze().copy()
+
+#CREATE MATCHED EXTERNAL EXAMPLE DATASET
 # Kindly note that the features names, order of features and dimensions in this example dataset is same as in the original dataset
 means = X.mean()
 stds  = X.std().replace(0, 1.0)
@@ -24,7 +28,7 @@ example_df.to_csv(EXAMPLE_CSV, index=False)
 print("Created example:", EXAMPLE_CSV)
 print(example_df.head())
 
-#@title 🔵 BLOCK 7 — EXTERNAL PREDICTION WITH GMM
+#EXTERNAL PREDICTION WITH GMM
 EXAMPLE_CSV = "/external_data_example_matched.csv"
 OUT_PRED = "/output/external_gmm_predictions_matched.csv"
 
