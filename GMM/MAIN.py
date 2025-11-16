@@ -1,5 +1,4 @@
 #INSTALL & IMPORTS
-!pip install -q ucimlrepo joblib matplotlib scikit-learn pandas numpy seaborn
 
 import os
 import numpy as np
