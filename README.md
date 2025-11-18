@@ -67,6 +67,10 @@ Run the entire pipeline with a single command:
 ```bash
 bash RUN.sh
 ```
+or 
+```Command Promt
+setup.bat
+```
 
 This script will:
 1. Clone/update the repository
